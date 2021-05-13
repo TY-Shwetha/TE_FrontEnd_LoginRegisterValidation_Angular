@@ -1,0 +1,16 @@
+nav{
+    height: 50px;
+    padding-left: 0px;
+    
+}
+
+li a {
+    color:white;
+    text-align: center;
+    padding: 13px;
+    font-weight: bold;
+  }
+
+li a:hover{
+    background-color: thistle;
+} 

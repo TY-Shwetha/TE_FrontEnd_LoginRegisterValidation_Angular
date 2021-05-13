@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+
+#form1 {
+    margin-top: 30px;
+    border: 1px solid black;
+    background-color: white;
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    border-radius: 35px;
+    margin-bottom: 10px;
+}
+
+label{
+  color: blue;
+  font-weight: bold;
+}
+#submit {
+    padding-left: 315px;
+    padding-top: 25px;
+}     
+
+.form-control.ng-touched.ng-invalid{
+    border: 2px solid red;
+}

@@ -1,0 +1,39 @@
+<div class="col-md-4 offset-md-4">
+    <form id="loginform" name="loginForm" method="GET">
+        <div id="h3">
+            <h3>Login</h3>
+        </div>
+        <div class="form-group">
+            <!-- <label for="firstname" >FirstName : </label><br> -->
+            <input ngModel #username="ngModel" type="text" class="form-control" placeholder=" Enter the username"
+                required name="username" id="username" (change)="log(username)" minlength="3" maxlength="10"
+                pattern="^[a-zA-Z'-]+$">
+            <div class="alert alert-danger" *ngIf="username.invalid && username.touched">
+                <div class="username.errors.required">First name is required</div>
+                <div class="username.errors.minlength"> First name must be minimun of
+                    {{username.errors.minlength.requiredLength}}</div>
+                <div class="username.errors.pattern">FirstName doesnot match the pattern</div>
+            </div>
+        </div><br>
+        <div class="form-group">
+            <input ngModel #password="ngModel" type="password" name="password" id="password" class="form-control"
+                placeholder=" Enter the Password" required (change)="log(password)" minlength="8" maxlength="32"
+                ng-pattern="/^[A-Za-z]\w{7,14}$/">
+            <div class="alert alert-danger" *ngIf="password.invalid && password.touched">
+                <div class="password.errors.required">Password is required</div>
+                <div class="password.errors.minlength">Password must be minimum of
+                    {{password.errors.minlength.requiredLength}}</div>
+                <div class="password.errors.pattern">Password doesnot match the pattern</div>
+            </div>
+        </div>
+        <br>
+        <div id="submit" class="form-group">
+            <button id="login" type="submit" class="btn btn-primary" [disabled]='username.invalid || password.invalid'>
+                Login
+            </button>
+            <button id="register" type="submit" class="btn btn-primary">
+                <a href='register'>Register</a>
+            </button>
+        </div>
+    </form>
+</div>

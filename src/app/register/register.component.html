@@ -1,0 +1,106 @@
+<div class="col-md-4 offset-md-4">
+  <h3 style="margin-top: 20px;padding-left: 110px;"> Registration Form</h3>
+
+  <form [formGroup]="registerForm">
+
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input formControlName="username" name="username" id="username" type="username" class="form-control" placeholder="Enter your name">
+      <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
+        <div *ngIf="username.errors.required">Username is required.</div>
+        <div *ngIf="username.errors.minlength">Username must have {{username.errors.minlength.requiredLength}}
+          characters.</div>
+        <div *ngIf="username.errors.pattern">Pattern doesnot match </div>
+        <div *ngIf="username.errors.cannotContainSpace">UserName cannot contain space.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input formControlName="password" name="password" id="password" type="password" class="form-control" placeholder="Enter the password(Eg:abcAs@34)">
+      <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+        <div *ngIf="password.errors.required">Password is required.</div>
+        <div *ngIf="password.errors.minlength">Password must be at least 8 characters</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="confirmpassword">Confirm Password</label>
+      <input formControlName="confirmpassword" name="confirmpassword" id="confirmpassword" type="password"
+        class="form-control" placeholder="Re-enter your password">
+      <div *ngIf="confirmpassword.touched && confirmpassword.invalid" class="alert alert-danger">
+        <div *ngIf="confirmpassword.errors.required">Password is required.</div>
+        <div *ngIf="confirmpassword.errors.mustMatch">Password and Confirm Password must be match.</div>
+      </div>
+    </div>
+
+    <!-- Course selection -->
+    <div class="col-12">
+      <label for="course" class="form-label">Designation</label>
+      <select formControlName="course" name="course" id="course" class="form-control">
+        <option value="select">Select</option>
+        <option value="Java full stack">Java Full Stack</option>
+        <option value="Mean stack">Mean Stack</option>
+        <option value="Mern stack">Mern Stack</option>
+        <option value="Sql">SQL</option>
+      </select>
+      <div *ngIf="course.touched && course.invalid" class="alert alert-danger">
+        <div *ngIf="course.errors.required">Designation Selection is required.</div>
+      </div>
+    </div>
+
+
+    <div class="col-12">
+      <label for="email" class="form-label">Email</label>
+      <input type="text" formControlName="email" class="form-control" placeholder="abc@gmail.com"/>
+      <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+        <div *ngIf="email.errors.required">Email is required</div>
+        <div *ngIf="email.errors.email">Email must be a valid email address</div>
+      </div>
+    </div>
+    <div class="col-12">
+      <label for="phone" class="form-label">Phone number</label>
+      <input class="form-control" type="number" id="phone" name="phone" formControlName="phone" placeholder="8089088945">
+      <div *ngIf="phone.touched && phone.invalid" class="alert alert-danger" >
+        <div *ngIf="phone.errors.required">Phone number is required</div>
+        <!-- <div *ngIf="phone.errors.maxlength">Phone number must of 10 digits</div> -->
+        <div *ngIf="phone.errors.pattern">Doesnot match the pattern.</div>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <label for="gender" class="form-label">Gender</label>
+      <select id="gender" class="form-control" name="gender" formControlName="gender">
+        <option selected>Male</option>
+        <option>Female</option>
+      </select>
+    </div>
+    <div *ngIf="gender.touched && gender.invalid" class="alert alert-danger">
+      <div *ngIf="gender.errors.required">Gender is required.</div>
+    </div>
+
+    <div class="col-12">
+      <label for="address" class="form-label">Address</label>
+      <input formControlName="address" type="textarea" class="form-control" id="address" name="address" placeholder="1234-Main-street">
+      <div class="alert alert-danger" *ngIf="address.invalid && address.touched">
+        <div class="address.errors.required">Address is required.</div>
+        <div class="address.errors.pattern">Pattern doesnot match.</div>
+      </div>
+    </div>
+    <!-- <div class="form-group form-check">
+      <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" />
+      <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+      <div *ngIf="acceptTerms.touched && acceptTerms.errors" class="alert alert-danger">Accept Ts & Cs is required</div>
+    </div> -->
+
+    <br>
+    <div id="submit" class="col-md-6">
+      <a routerLink="login">
+        <button type="submit" class="btn btn-primary " [disabled]="!registerForm.valid">Register</button>
+      </a>
+    </div>
+    <br>
+  </form>
+</div>
+
+<router-outlet></router-outlet>

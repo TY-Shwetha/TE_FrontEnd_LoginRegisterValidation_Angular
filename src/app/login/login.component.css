@@ -1,0 +1,45 @@
+
+* {
+    box-sizing: border-box;
+}
+
+#h3 {
+    padding-left: 156px;
+    padding-bottom: 20px;
+    color: red;
+    padding-bottom: 30px;
+    font-weight: bold;
+}
+
+#loginform {
+    margin-top: 80px;
+    border: 1px solid black;
+    background-color: white;
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    border-radius: 35px;
+    margin-bottom: 10px;
+}
+
+
+#register {
+    margin-left: 254px;
+      
+}
+#register a{
+    color: white;
+    text-decoration: none;
+}
+
+input[type="text"]{ 
+        text-align: center;
+    }
+    input[type="password"] { 
+        text-align: center;
+    }
+
+    .form-control.ng-touched.ng-invalid{
+        border: 2px solid red;
+    }
